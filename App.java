@@ -123,8 +123,8 @@ public class App {
             System.out.println("Total points: " + score); // Displays total points accumulated
             System.out.println("Questions wrong: " + wrong); // Displays number of questions wrong
             System.out.println("Score: " + score/qnum); // Displays final score by dividing points accumulated with number of questions answered
-            if (score == 0 || wrong == 3){
-                System.out.println("I'm sorry but you have lost the game. Try again for a better score!");
+            if (score == 0 || wrong >= 3){
+                System.out.println("I'm sorry but you have lost the game with 3 or more incorrect answers. Try again for a better score!");
             }
             else {
                 System.out.println("Congratulations on completing the game! Try again if you want a better score!");
