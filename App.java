@@ -12,10 +12,9 @@ public class App {
         int wrong = 0; // Creates variable for the amount of questions wrong
         int qnum = 0; // Creates variable for the number of questions asked
         boolean gameEnd = false; //Creates the variable that will check if the game is going to end
-        boolean gameOn = true; // Creates the variable that will check if the game is going to continue
 
         
-        while (gameOn == true){ 
+        while (true){ 
             System.out.println("1. What is 5 + 30?"); // The first question is asked
             int ans1 = input.nextInt(); // The computer logs their answer as an integer 
             qnum++;
@@ -116,23 +115,20 @@ public class App {
             else{
                 wrong++;
             }
-
-            gameOn = false;
-            break;
-        }
-        System.out.println("The game is over, would you like to play again? [Y/N]");
-        char restart = input.next().charAt(0);
-        if (restart == 'Y' || restart == 'y'){
-            gameOn = true;
-            wrong = 0;
-            score = 0;
-            qnum = 0;
+            System.out.println("The game is over, would you like to play again? [Y/N]"); // Asks the user if they would like to play again
+            char restart = input.next().charAt(0); // Collects a single character from the user
+            if (restart == 'Y' || restart == 'y'){ // Evaluates whether the response was a "yes" and resets all necessary variables
+                wrong = 0;
+                score = 0;
+                qnum = 0;
             }
-        if (restart == 'n' || restart == 'N'){
-            gameOn = false;
-            showAnswers();
-            gameEnd = true;
+            if (restart == 'n' || restart == 'N'){ // Evaluates whether the response was a "no"
+                showAnswers();
+                gameEnd = true;
+                break; // Ends the while loop and continues to the gameEnd if statements below
                 }
+        
+        }
         
         if (gameEnd == true){
             System.out.println("Total points: " + score); // Displays total points accumulated
@@ -141,7 +137,7 @@ public class App {
             double finalScore = (score/qnum)*100;
             finalScore = (int)finalScore;
             System.out.println("Percent correct: "+finalScore+"%"); // Displays final score 
-            if (score == 0 || wrong >= 3){
+            if (score == 0 || wrong >= 3){ // Decides and tells the user whether they lost or not
                 System.out.println("I'm sorry but you have lost the game with 3 or more incorrect answers.");
                 System.exit(0);
             }
