@@ -11,13 +11,11 @@ public class App {
         double score = 0; // Starts the score at 0
         int wrong = 0; // Creates variable for the amount of questions wrong
         int qnum = 0; // Creates variable for the number of questions asked
+        boolean gameEnd = false; //Creates the variable that will check if the game is going to end
+        boolean gameOn = true; // Creates the variable that will check if the game is going to continue
 
-        int factorial = 6; // Setting up the answer for the factorial question to come
-        for(int i=factorial-1; i>=1; i--){
-            factorial = factorial*i; // We have just calculated what 6! is 
-        }
-
-        while (wrong < 3){
+        
+        while (gameOn == true){ 
             System.out.println("1. What is 5 + 30?"); // The first question is asked
             int ans1 = input.nextInt(); // The computer logs their answer as an integer 
             qnum++;
@@ -63,6 +61,10 @@ public class App {
             System.out.println("What is 6 factorial? (6!)");
             int ans4 = input.nextInt();
             qnum++;
+            int factorial = 6; // Setting up the answer for the factorial question to come
+            for(int i=factorial-1; i>=1; i--){
+                factorial = factorial*i; // We have just calculated what 6! is 
+            } 
             if (ans4 == factorial){
                 score++;
             }
@@ -85,9 +87,8 @@ public class App {
                 wrong++;
             }
             else{
-                wrong++;
-            }
-
+                wrong++;}
+            
             System.out.println("What is the derivative of 900x + 7000?");
             int ans6 = input.nextInt();
             qnum++;
@@ -116,23 +117,52 @@ public class App {
                 wrong++;
             }
 
-            break; // Ends the while loop and continues to the if statements below
+            gameOn = false;
+            break;
         }
+        System.out.println("The game is over, would you like to play again? [Y/N]");
+        char restart = input.next().charAt(0);
+        if (restart == 'Y' || restart == 'y'){
+            gameOn = true;
+            wrong = 0;
+            score = 0;
+            qnum = 0;
+            }
+        if (restart == 'n' || restart == 'N'){
+            gameOn = false;
+            showAnswers();
+            gameEnd = true;
+                }
         
-        if (wrong == 3 || qnum == 7){
+        if (gameEnd == true){
             System.out.println("Total points: " + score); // Displays total points accumulated
             System.out.println("Questions wrong: " + wrong); // Displays number of questions wrong
-            System.out.println("Score: " + score/qnum); // Displays final score by dividing points accumulated with number of questions answered
+            // Make the score into a percentage below
+            double finalScore = (score/qnum)*100;
+            finalScore = (int)finalScore;
+            System.out.println("Percent correct: "+finalScore+"%"); // Displays final score 
             if (score == 0 || wrong >= 3){
-                System.out.println("I'm sorry but you have lost the game with 3 or more incorrect answers. Try again for a better score!");
+                System.out.println("I'm sorry but you have lost the game with 3 or more incorrect answers.");
+                System.exit(0);
             }
             else {
-                System.out.println("Congratulations on completing the game! Try again if you want a better score!");
+                System.out.println("Congratulations on completing the game!");
+                System.exit(0);
             }
-            System.exit(0);
+    
         }
         
 
     }
-
+    static void showAnswers(){
+        System.out.println("These are the answers:");
+        System.out.println("1: 35");
+        System.out.println("2: 54");
+        System.out.println("3: 27");
+        System.out.println("4: 720");
+        System.out.println("5: 2");
+        System.out.println("6: 900");
+        System.out.println("7: 36");
+    }
 }
+
