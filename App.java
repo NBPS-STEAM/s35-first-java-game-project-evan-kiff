@@ -133,9 +133,8 @@ public class App {
         if (gameEnd == true){
             System.out.println("Total points: " + score); // Displays total points accumulated
             System.out.println("Questions wrong: " + wrong); // Displays number of questions wrong
-            // Make the score into a percentage below
-            double finalScore = (score/qnum)*100;
-            finalScore = (int)finalScore;
+            double finalScore = (score/qnum)*100; // Makes the score into a percentage
+            finalScore = (int)finalScore; // Rounds the percentage to a whole number using casting
             System.out.println("Percent correct: "+finalScore+"%"); // Displays final score 
             if (score == 0 || wrong >= 3){ // Decides and tells the user whether they lost or not
                 System.out.println("I'm sorry but you have lost the game with 3 or more incorrect answers.");
@@ -150,6 +149,7 @@ public class App {
         
 
     }
+    // creates a method with no return value that tells the user the answers
     static void showAnswers(){
         System.out.println("These are the answers:");
         System.out.println("1: 35");
