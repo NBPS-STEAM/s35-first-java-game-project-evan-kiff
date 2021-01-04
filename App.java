@@ -18,7 +18,7 @@ public class App {
             System.out.println("1. What is 5 + 30?"); // The first question is asked
             int ans1 = input.nextInt(); // The computer logs their answer as an integer 
             qnum++;
-            if (ans1 == 35){ // Adds or subtracts to the score
+            if (ans1 == 35){ // Adds or subtracts to the score   
                 score++;
             }
             else if(score != 0 && ans1 != 35){
