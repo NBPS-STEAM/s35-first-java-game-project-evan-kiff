@@ -61,8 +61,8 @@ public class App {
             int ans4 = input.nextInt();
             qnum++;
             int factorial = 6; // Setting up the answer for the factorial question to come
-            for(int i=factorial-1; i>=1; i--){
-                factorial = factorial*i; // We have just calculated what 6! is 
+            for(int i=factorial-1; i>=1; i--){ // A for loop that calculates 6!
+                factorial = factorial*i; 
             } 
             if (ans4 == factorial){
                 score++;
@@ -116,13 +116,14 @@ public class App {
                 wrong++;
             }
             System.out.println("The game is over, would you like to play again? [Y/N]"); // Asks the user if they would like to play again
-            char restart = input.next().charAt(0); // Collects a single character from the user
-            if (restart == 'Y' || restart == 'y'){ // Evaluates whether the response was a "yes" and resets all necessary variables
+            char answer = input.next().charAt(0); // Collects a single character from the user
+            String restart = Character.toString(answer); //Converts the input answer to a string under a new variable name that will be checked
+            if (restart.equals("Y")|| restart.equals("y")){ // Evaluates whether the response was a "yes" and resets all necessary variables
                 wrong = 0;
                 score = 0;
                 qnum = 0;
             }
-            if (restart == 'n' || restart == 'N'){ // Evaluates whether the response was a "no"
+            else if (restart.equals("N") || restart.equals("n")){ // Evaluates whether the response was a "no"
                 showAnswers();
                 gameEnd = true;
                 break; // Ends the while loop and continues to the gameEnd if statements below
