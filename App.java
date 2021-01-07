@@ -43,7 +43,7 @@ public class App {
                 wrong++;
             }
 
-            System.out.println("What is 3 to the power of 3?");
+            System.out.println("3. What is 3 to the power of 3?");
             int ans3 = input.nextInt();
             qnum++;
             if (ans3 == 27){
@@ -57,7 +57,7 @@ public class App {
                 wrong++;
             }
 
-            System.out.println("What is 6 factorial? (6!)");
+            System.out.println("4. What is 6 factorial? (6!)");
             int ans4 = input.nextInt();
             qnum++;
             int factorial = 6; // Setting up the answer for the factorial question to come
@@ -75,7 +75,7 @@ public class App {
                 wrong++;
             }
 
-            System.out.println("What is the x-coordinate of the vertex of 3x^2 - 12x + 3?");
+            System.out.println("5. What is the x-coordinate of the vertex of 3x^2 - 12x + 3?");
             int ans5 = input.nextInt();
             qnum++;
             if (ans5 == 2){
@@ -88,7 +88,7 @@ public class App {
             else{
                 wrong++;}
             
-            System.out.println("What is the derivative of 900x + 7000?");
+            System.out.println("6. What is the derivative of 900x + 7000?");
             int ans6 = input.nextInt();
             qnum++;
             if(ans6 == 900){
@@ -102,7 +102,7 @@ public class App {
                 wrong++;
             }
 
-            System.out.println("The volume of a cube increases at rate 1.5 m^3/s. What is the rate the surface area changes when cube volume is 27 m^3?");
+            System.out.println("7. The volume of a cube increases at rate 1.5 m^3/s. What is the rate the surface area changes when cube volume is 27 m^3?");
             int ans7 = input.nextInt();
             qnum++;
             if(ans7 == 36){
