@@ -135,6 +135,7 @@ public class App {
             System.out.println("Total points: " + score); // Displays total points accumulated
             System.out.println("Questions wrong: " + wrong); // Displays number of questions wrong
             double finalScore = (score/qnum)*100; // Makes the score into a percentage
+            finalScore += 0.5;
             finalScore = (int)finalScore; // Rounds the percentage to a whole number using casting
             System.out.println("Percent correct: "+finalScore+"%"); // Displays final score 
             if (score == 0 || wrong >= 3){ // Decides and tells the user whether they lost or not
